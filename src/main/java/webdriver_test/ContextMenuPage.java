@@ -6,12 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
+
 import static config.ConfigReader.getProperty;
 
 public class ContextMenuPage {
    private WebDriver driver;
-    public ContextMenuPage(WebDriver driver){
-        this.driver = driver;
+   private SoftAssert softAssert;
+    public ContextMenuPage(WebDriver driver, SoftAssert softAssert){
+        this.driver = driver; this.softAssert = softAssert;
         PageFactory.initElements(driver, this);
     }
 
@@ -33,7 +36,7 @@ public void rightClickOnBox(){
     actions.contextClick(box).perform();
     Alert alert = driver.switchTo().alert();
     String alertStr= driver.switchTo().alert().getText();
-    System.out.println("Alert text is: "+alertStr);
+    softAssert.assertEquals(alertStr.trim().toLowerCase(),"You selected a context menu".trim().toLowerCase());
     alert.accept();
 
 }

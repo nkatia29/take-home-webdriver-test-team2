@@ -43,7 +43,7 @@ public void verifyCheckBoxes() throws InterruptedException {
 }
 @Test
 public void verifyContextMenuPage(){
-   ContextMenuPage contextMenuPage = new ContextMenuPage(driver);
+   ContextMenuPage contextMenuPage = new ContextMenuPage(driver, softAssert);
    contextMenuPage.navigateContextMenu();contextMenuPage.rightClickOnBox();
 }
 @Test
