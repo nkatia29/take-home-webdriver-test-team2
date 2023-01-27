@@ -35,7 +35,7 @@ public void verifyLoginFailure(){
     loginPage.navigateToLogInPage(); loginPage.loginFailure();
 }
 @Test
-public void verifyCheckBoxes() throws InterruptedException {
+public void verifyCheckBoxes() {
     CheckBoxesPage checkBoxes = new CheckBoxesPage(driver);
     checkBoxes.navigateToCheBoxesPage();
     checkBoxes.checkAndUncheckBoxes();
@@ -46,9 +46,10 @@ public void verifyContextMenuPage(){
    contextMenuPage.navigateContextMenu();contextMenuPage.rightClickOnBox();
 }
 @Test
-public void verifyDragAndDropFunctions() throws InterruptedException {
+public void verifyDragAndDropFunctions() {
     DragAndDropPage dragAndDrop = new DragAndDropPage(driver);
-    dragAndDrop.navigatetoDragAndDropPage();dragAndDrop.performDragAndDrop();
+    dragAndDrop.navigatetoDragAndDropPage();
+    dragAndDrop.performDragAndDrop();
 }
 
 
@@ -66,12 +67,21 @@ public void verifyDynamicContent(){
     dynamicContent.navigatetoDynamicContentPage();dynamicContent.verifyContentChanges();
 }
 
-@Test public void verifyDynamicLoading(){
+@Test
+public void verifyDynamicLoading(){
     DynamicLoadingPage dynamicLoading = new DynamicLoadingPage(driver, softAssert);
     dynamicLoading.navigateToLogInPage();dynamicLoading.verifyDynamicLoading();
 }
+@Test
+public void verifyFileDownloaded(){
+    FileDownloadPage fileDownloadPage = new FileDownloadPage(driver, softAssert);
+    fileDownloadPage.navigateFileDownloadLink();fileDownloadPage.verifyFileDownloadLink();
+}
 
-
+@Test public void verifyFileUploaded() throws InterruptedException {
+    FileUploadPage fileUploadPage = new FileUploadPage(driver, softAssert);
+    fileUploadPage.navigateToFileUploasedLink(); fileUploadPage.UploadFileTest();
+}
 
 
 

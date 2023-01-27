@@ -5,12 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
-import utilities.Utilities;
-
-import java.io.File;
-
 import static config.ConfigReader.getProperty;
-import static utilities.Utilities.isFileDownloaded;
+import static utilities.Utilities.getLatestFilefromDir;
+
 
 public class FileDownloadPage {
 
@@ -23,19 +20,21 @@ public class FileDownloadPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//a[normalize-space()='some-file.txt']")
-    private WebElement someTextBtn;
+    @FindBy(xpath = "//a[contains(text(),'some-file.txt')]")
+    private WebElement someFileLink;
 //Test clicks on the file.
 //Test asserts that the file is downloaded.
 
-    public void fileDownloadLink() {
+    public void navigateFileDownloadLink() {
         driver.get(getProperty("urlFileDownload"));
     }
 
     public void verifyFileDownloadLink() {
-        someTextBtn.click();
-        String filePath ="C:\Users\nkati\Downloads\some-file.txt";
-        softAssert.assertTrue(isFileDownloaded(filePath, "file"));
+        someFileLink.click();
+        boolean fileExists = getLatestFilefromDir("C:\\Users\\nkati\\Downloads").exists();
+        softAssert.assertTrue(fileExists);
+
+
     }
 
 

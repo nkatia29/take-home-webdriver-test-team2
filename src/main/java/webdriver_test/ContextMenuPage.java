@@ -13,8 +13,10 @@ import static config.ConfigReader.getProperty;
 public class ContextMenuPage {
    private WebDriver driver;
    private SoftAssert softAssert;
+   private Actions actions;
     public ContextMenuPage(WebDriver driver, SoftAssert softAssert){
         this.driver = driver; this.softAssert = softAssert;
+        this.actions = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -32,7 +34,6 @@ public void navigateContextMenu() {
 
 //ContextMenu: http://localhost:7080/context_menu Right-click in the box to see one called 'the-internet'. Test JavaScript alert text on Right-Click.
 public void rightClickOnBox(){
-    Actions actions = new Actions(driver);
     actions.contextClick(box).perform();
     Alert alert = driver.switchTo().alert();
     String alertStr= driver.switchTo().alert().getText();
