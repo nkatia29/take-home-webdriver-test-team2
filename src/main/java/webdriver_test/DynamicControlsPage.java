@@ -7,12 +7,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
-public class DynamicControls {
+public class DynamicControlsPage {
 
     private WebDriver driver;
     private SoftAssert softAssert;
 
-    public DynamicControls(WebDriver driver, SoftAssert softAssert){
+    public DynamicControlsPage(WebDriver driver, SoftAssert softAssert){
         this.driver = driver;
         this.softAssert = softAssert;
         PageFactory.initElements(driver, this);

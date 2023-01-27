@@ -1,5 +1,4 @@
 import driver.Driver;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -37,7 +36,7 @@ public void verifyLoginFailure(){
 }
 @Test
 public void verifyCheckBoxes() throws InterruptedException {
-    CheckBoxes checkBoxes = new CheckBoxes (driver);
+    CheckBoxesPage checkBoxes = new CheckBoxesPage(driver);
     checkBoxes.navigateToCheBoxesPage();
     checkBoxes.checkAndUncheckBoxes();
 }
@@ -48,13 +47,13 @@ public void verifyContextMenuPage(){
 }
 @Test
 public void verifyDragAndDropFunctions() throws InterruptedException {
-    DragAndDrop dragAndDrop = new DragAndDrop(driver);
+    DragAndDropPage dragAndDrop = new DragAndDropPage(driver);
     dragAndDrop.navigatetoDragAndDropPage();dragAndDrop.performDragAndDrop();
 }
 
 
 @Test public void verifyDynamicControls(){
-    DynamicControls dynamicControls = new DynamicControls(driver, softAssert);
+    DynamicControlsPage dynamicControls = new DynamicControlsPage(driver, softAssert);
     dynamicControls.navigatetoDynamicControlPage();
     dynamicControls.verifyEnableAndDisableSection();
     dynamicControls.verifyRemoveAndAddSection();
@@ -63,12 +62,12 @@ public void verifyDragAndDropFunctions() throws InterruptedException {
 
 @Test
 public void verifyDynamicContent(){
-    DynamicContent dynamicContent = new DynamicContent(driver, softAssert);
+    DynamicContentPage dynamicContent = new DynamicContentPage(driver, softAssert);
     dynamicContent.navigatetoDynamicContentPage();dynamicContent.verifyContentChanges();
 }
 
 @Test public void verifyDynamicLoading(){
-    DynamicLoading dynamicLoading = new DynamicLoading(driver, softAssert);
+    DynamicLoadingPage dynamicLoading = new DynamicLoadingPage(driver, softAssert);
     dynamicLoading.navigateToLogInPage();dynamicLoading.verifyDynamicLoading();
 }
 

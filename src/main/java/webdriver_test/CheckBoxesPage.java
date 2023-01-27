@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import static config.ConfigReader.getProperty;
 
-public class CheckBoxes {
+public class CheckBoxesPage {
   private WebDriver driver;
 
-  public CheckBoxes(WebDriver driver){
+  public CheckBoxesPage(WebDriver driver){
       this.driver = driver;
       PageFactory.initElements(driver, this);
   }
