@@ -78,12 +78,18 @@ public void verifyFileDownloaded(){
     fileDownloadPage.navigateFileDownloadLink();fileDownloadPage.verifyFileDownloadLink();
 }
 
-@Test public void verifyFileUploaded() throws InterruptedException {
+@Test
+public void verifyFileUploaded() throws InterruptedException {
     FileUploadPage fileUploadPage = new FileUploadPage(driver, softAssert);
     fileUploadPage.navigateToFileUploasedLink(); fileUploadPage.UploadFileTest();
 }
 
-
+@Test
+public void verifyFloatingMenuLink() throws InterruptedException {
+    FloatingMenuPage floatingMenuPage = new FloatingMenuPage(driver,softAssert);
+    floatingMenuPage.navigateToFloatingPageLink();
+    floatingMenuPage.verifyFloatingMenu();
+}
 
 
 }

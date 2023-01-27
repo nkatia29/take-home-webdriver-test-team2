@@ -17,6 +17,7 @@ import java.net.URL;
 import java.time.Duration;
 
 import static config.ConfigReader.getProperty;
+import static config.ConfigReader.setProperty;
 
 
 public class FileUploadPage {
@@ -53,7 +54,7 @@ public void navigateToFileUploasedLink(){
 public void UploadFileTest() throws InterruptedException {// must have input and file
     softAssert.assertTrue(chooseFileBtn.isEnabled());
     chooseFileBtn.isSelected();
-    chooseFileBtn.sendKeys("C:\\Users\\nkati\\OneDrive\\Desktop\\Test.rtf");
+    chooseFileBtn.sendKeys(getProperty("filePath"));
     Thread.sleep(5_000);
     uploadBtn.click();
     softAssert.assertTrue(fileUploadedSign.isDisplayed());
