@@ -1,5 +1,7 @@
 import driver.Driver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntries;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -96,5 +98,14 @@ public void verifyFloatingMenuLink() throws InterruptedException {
     InframePage inframePage = new InframePage(driver, softAssert);
     inframePage.navigateToInframeLink();inframePage.TestSwitches();
 }
+@Test
+public void catchJavaScriptError()  {
+JavaScriptErrorPage javaScriptErrorPage = new JavaScriptErrorPage(driver, softAssert);
+javaScriptErrorPage.navigateJavaScriptErrorLink();
+javaScriptErrorPage.catchJavaScriptError();
+
+
+}
+
 
 }

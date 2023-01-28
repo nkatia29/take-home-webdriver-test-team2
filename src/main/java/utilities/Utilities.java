@@ -1,6 +1,9 @@
 package utilities;
 
 
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+
 import java.io.File;
 
 public class Utilities {
@@ -30,7 +33,13 @@ public class Utilities {
 
     }
 
-
+    public static void logConsoleEntries (LogEntries logEntries) {
+        for (LogEntry logEntry : logEntries) {
+            System.out.println(String.valueOf(" Time Stamp: " + logEntry.getTimestamp()));
+            System.out.println(String.valueOf(" Log Level: " + logEntry.getLevel()));
+            System.out.println(String.valueOf(" Log Message: " + logEntry.getMessage()));
+        }
+    }
 
 }
 
