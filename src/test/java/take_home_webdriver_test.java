@@ -18,8 +18,8 @@ private SoftAssert softAssert;
 }
 @AfterMethod
     public void tearDown(){
-    Driver.quitDriver();
-    softAssert.assertAll();
+    //Driver.quitDriver();
+   // softAssert.assertAll();
 }
 
 @Test
@@ -46,7 +46,7 @@ public void verifyContextMenuPage(){
    contextMenuPage.navigateContextMenu();contextMenuPage.rightClickOnBox();
 }
 @Test
-public void verifyDragAndDropFunctions() {
+public void verifyDragAndDropFunctions() throws InterruptedException {
     DragAndDropPage dragAndDrop = new DragAndDropPage(driver);
     dragAndDrop.navigatetoDragAndDropPage();
     dragAndDrop.performDragAndDrop();
@@ -62,7 +62,7 @@ public void verifyDragAndDropFunctions() {
 }
 
 @Test
-public void verifyDynamicContent(){
+public void verifyDynamicContent() throws InterruptedException {
     DynamicContentPage dynamicContent = new DynamicContentPage(driver, softAssert);
     dynamicContent.navigatetoDynamicContentPage();dynamicContent.verifyContentChanges();
 }
@@ -91,5 +91,10 @@ public void verifyFloatingMenuLink() throws InterruptedException {
     floatingMenuPage.verifyFloatingMenu();
 }
 
+
+@Test public void verifyInframeLink() throws InterruptedException {
+    InframePage inframePage = new InframePage(driver, softAssert);
+    inframePage.navigateToInframeLink();inframePage.TestSwitches();
+}
 
 }

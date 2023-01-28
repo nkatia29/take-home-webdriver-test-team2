@@ -34,7 +34,7 @@ public void navigatetoDynamicContentPage(){
 
 
 
-public void verifyContentChanges(){
+public void verifyContentChanges() {
     softAssert.assertTrue(clickHereBtn.isEnabled());
     clickHereBtn.click();
     String firstText = text.getText();
